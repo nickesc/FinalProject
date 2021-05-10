@@ -17,7 +17,7 @@ public class Nearby {
     private String author;
     private String have;
     private String want;
-    private String posted;
+    private String[] posted = {"",""};
 
     public Nearby(JSONObject json) throws JSONException {
 
@@ -36,9 +36,11 @@ public class Nearby {
 
         TimeZone.setDefault(TimeZone.getTimeZone("America/New_York"));
         Date date = new Date(json.getInt("created_utc")*1000L);
-        SimpleDateFormat sdf = new SimpleDateFormat("MM dd yyyy hh:mm:ss a zzzz");
+        SimpleDateFormat sdf1 = new SimpleDateFormat("MM/dd/yyyy");
+        SimpleDateFormat sdf2 = new SimpleDateFormat("hh:mm a zzz");
 
-        posted=sdf.format(date);
+        posted[0]=sdf1.format(date);
+        posted[1]=sdf2.format(date);
 
     }
 
@@ -71,6 +73,10 @@ public class Nearby {
     }
 
     public String getPosted() {
-        return posted;
+        return posted[0]+" at "+posted[1];
+    }
+    public String getPosted(int x) {
+
+        return posted[0]+"\n"+posted[1];
     }
 }

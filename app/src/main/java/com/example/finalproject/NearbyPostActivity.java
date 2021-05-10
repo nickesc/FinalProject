@@ -55,11 +55,11 @@ public class NearbyPostActivity extends AppCompatActivity {
                     JSONObject json = new JSONArray(new String(responseBody)).getJSONObject(0).getJSONObject("data").getJSONArray("children").getJSONObject(0).getJSONObject("data");
                     nearby=new Nearby(json);
                     Log.d("help",nearby.getPosted());
-                    haveInfo.setText("Have: " + nearby.getHave());
-                    wantInfo.setText("Want: "+nearby.getWant());
-                    authorInfo.setText("Posted by: "+nearby.getAuthor());
+                    haveInfo.setText(nearby.getHave());
+                    wantInfo.setText(nearby.getWant());
+                    authorInfo.setText(nearby.getAuthor());
                     bodyInfo.setText(nearby.getBody());
-                    postedInfo.setText("Posted at: "+nearby.getPosted());
+                    postedInfo.setText(nearby.getPosted());
 
                     nearbyRedditButton.setOnClickListener(v -> {
                         Intent implicit = new Intent(Intent.ACTION_VIEW, Uri.parse(nearby.getUrl()));

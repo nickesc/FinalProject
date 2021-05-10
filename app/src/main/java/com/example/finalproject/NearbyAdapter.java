@@ -42,6 +42,7 @@ public class NearbyAdapter extends RecyclerView.Adapter<NearbyAdapter.ViewHolder
 
         holder.tvWant.setText("Have: "+nearby.getWant());
         holder.tvHave.setText("Want: "+nearby.getHave());
+        holder.tvPosted.setText(nearby.getPosted(1));
 
         holder.cvNearbyItem.setOnClickListener(v -> {
             Log.d("help",nearby.getTitle());
@@ -60,12 +61,14 @@ public class NearbyAdapter extends RecyclerView.Adapter<NearbyAdapter.ViewHolder
 
         TextView tvHave;
         TextView tvWant;
+        TextView tvPosted;
         ConstraintLayout cvNearbyItem;
 
         public ViewHolder (View itemView){
             super(itemView);
             tvHave=itemView.findViewById(R.id.tv_nearbyHave);
             tvWant=itemView.findViewById(R.id.tv_nearbyWant);
+            tvPosted=itemView.findViewById(R.id.tv_nearbyPosted);
             cvNearbyItem=itemView.findViewById(R.id.cv_nearby);
         }
 

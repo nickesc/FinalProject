@@ -4,14 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cv_groupbuy"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_height="wrap_content"
     android:layout_margin="10dp"
-    android:background="#BA2A2A">
+    android:background="#E8E8E8">
 
     <ImageView
         android:id="@+id/imageView_groupbuy"
         android:layout_width="wrap_content"
         android:layout_height="170dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView_groupbuyName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -21,7 +24,9 @@
         android:id="@+id/textView_groupbuyName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:text="TextView"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
