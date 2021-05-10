@@ -50,13 +50,13 @@ public class DetailsActivity extends AppCompatActivity {
         String postIdUrl=getIntent().getStringExtra("id");
         String intentType=getIntent().getStringExtra("type");
         if(intentType.equals("gb")){
-            Log.d("help",postIdUrl);
+            //Log.d("help",postIdUrl);
             asyncClient.get(urlBase + postIdUrl, new AsyncHttpResponseHandler() {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                     try {
                         groupbuy = new Groupbuy(new JSONArray(new String(responseBody)).getJSONObject(0));
-                        Log.d("help", groupbuy.getName());
+                        //Log.d("help", groupbuy.getName());
 
                         name=findViewById(R.id.tv_infoName);
                         name.setText(groupbuy.getName());
@@ -115,13 +115,13 @@ public class DetailsActivity extends AppCompatActivity {
             });
         }
         else{
-            Log.d("help",postIdUrl);
+            //Log.d("help",postIdUrl);
             asyncClient.get(urlBase + postIdUrl, new AsyncHttpResponseHandler() {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                     try {
                         interest = new Interest(new JSONArray(new String(responseBody)).getJSONObject(0));
-                        Log.d("help",interest.getName());
+                        //Log.d("help",interest.getName());
 
                         name=findViewById(R.id.tv_infoName);
                         name.setText(interest.getName());

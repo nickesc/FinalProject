@@ -72,7 +72,7 @@ public class InterestAdapter extends RecyclerView.Adapter<InterestAdapter.ViewHo
 
         public ViewHolder(View itemView){
             super(itemView);
-            Log.d("help", "viewholder");
+            //Log.d("help", "viewholder");
             cv_groupbuy=itemView.findViewById(R.id.cv_groupbuy);
             tv_name=itemView.findViewById(R.id.textView_groupbuyName);
             iv_image=itemView.findViewById(R.id.imageView_groupbuy);

@@ -41,10 +41,10 @@ public class FragmentGroupbuy extends Fragment {
 
         try {
             results = new JSONArray(new String(getArguments().getByteArray("response")));
-            Log.d("help",results.toString());
+            //Log.d("help",results.toString());
             for (int i=0;i<results.length();i++){
                 Groupbuy groupbuy=new Groupbuy(results.getJSONObject(i));
-                Log.d("help",groupbuy.getName());
+                //Log.d("help",groupbuy.getName());
                 groupbuys.add(groupbuy);
             }
             GroupbuyAdapter groupbuyAdapter = new GroupbuyAdapter(groupbuys);

@@ -1,5 +1,7 @@
 package com.example.finalproject;
 
+import android.util.Log;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -28,11 +30,16 @@ public class Nearby {
         body=post.getString("selftext");
         author=post.getString("author");
 
-        String[] titleArray=title.split("\\[H\\]");
-        titleArray=titleArray[1].split("\\[W\\]");
+        String temp=title.substring(7).trim();
+        temp=temp.substring(3).trim();
+
+        String[] titleArray=temp.split("\\[W]");
+
+        //titleArray=titleArray[1].split("W");
 
         have=titleArray[0].trim();
         want=titleArray[1].trim();
+        //have=temp;
 
         TimeZone.setDefault(TimeZone.getTimeZone("America/New_York"));
         Date date = new Date(json.getInt("created_utc")*1000L);

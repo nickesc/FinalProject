@@ -41,10 +41,10 @@ public class FragmentInterest extends Fragment {
 
         try {
             results = new JSONArray(new String(getArguments().getByteArray("response")));
-            Log.d("help",results.toString());
+            //Log.d("help",results.toString());
             for (int i=0;i<results.length();i++){
                 Interest interest=new Interest(results.getJSONObject(i));
-                Log.d("help",interest.getName());
+                //Log.d("help",interest.getName());
                 interests.add(interest);
             }
             InterestAdapter interestAdapter = new InterestAdapter(interests);

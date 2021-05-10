@@ -69,7 +69,7 @@ public class FragmentNearby extends Fragment {
             nearbyTitle.setText("Unavailable in your area");
         }
         else {
-            Log.d("help", "state: " + usState);
+            //Log.d("help", "state: " + usState);
             asyncClient.get("https://www.reddit.com/r/mechmarket/search.json?limit=100&restrict_sr=1&q=%22%5BUS-" + usState.toUpperCase() + "%5D%22&sort=new", new AsyncHttpResponseHandler() {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
@@ -85,7 +85,7 @@ public class FragmentNearby extends Fragment {
                             nearbyRecyclerView.setAdapter(nearbyAdapter);
                             nearbyRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
 
-                            Log.d("help",""+nearby.getHave()+ " | "+nearby.getWant());
+                            //Log.d("help",""+nearby.getHave()+ " | "+nearby.getWant());
 
                         }
 

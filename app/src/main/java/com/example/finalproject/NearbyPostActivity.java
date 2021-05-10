@@ -54,7 +54,7 @@ public class NearbyPostActivity extends AppCompatActivity {
                 try {
                     JSONObject json = new JSONArray(new String(responseBody)).getJSONObject(0).getJSONObject("data").getJSONArray("children").getJSONObject(0).getJSONObject("data");
                     nearby=new Nearby(json);
-                    Log.d("help",nearby.getPosted());
+                    //Log.d("help",nearby.getPosted());
                     haveInfo.setText(nearby.getHave());
                     wantInfo.setText(nearby.getWant());
                     authorInfo.setText(nearby.getAuthor());

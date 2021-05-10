@@ -82,33 +82,6 @@ public class MainActivity extends AppCompatActivity {
         loadGroupbuy(new FragmentGroupbuy(),gbUrl);
 
 
-
-
-
-/*
-        asyncClient.get(icUrl, new AsyncHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                try {
-                    JSONArray json = new JSONArray(new String(responseBody));
-
-                    for (int i=0; i<json.length();i++){
-                        Interest interest=new Interest(json.getJSONObject(i));
-                        Log.d("help",interest.getName());
-                        interests.add(interest);
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                Log.d("help","oops");
-            }
-        });
-
- */
     }
 
     public void loadGroupbuy(Fragment fragment, String url){
@@ -116,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         asyncClient.get(url, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                    Log.d("help","working?");
+                    //Log.d("help","working?");
                     Bundle bundle = new Bundle();
                     bundle.putByteArray("response",responseBody);
                     fragment.setArguments(bundle);
@@ -124,17 +97,6 @@ public class MainActivity extends AppCompatActivity {
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                     fragmentTransaction.replace(R.id.fragview_main, fragment);
                     fragmentTransaction.commit();
-                    /*
-                    JSONArray json = new JSONArray(new String(responseBody));
-
-                    for (int i=0; i<json.length();i++){
-                        Groupbuy groupbuy=new Groupbuy(json.getJSONObject(i));
-                        Log.d("help",groupbuy.getName());
-                        groupbuys.add(groupbuy);
-                    }
-
-                     */
-
 
             }
 
@@ -164,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getLocation(Fragment fragment){
-        Log.d("help","good");
+        //Log.d("help","good");
         if  (ActivityCompat.checkSelfPermission(
                 MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
                         MainActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -179,9 +141,9 @@ public class MainActivity extends AppCompatActivity {
                                 Address newLoc= null;
                                 try {
                                     newLoc = geocoder.getFromLocation(location.getLatitude(),location.getLongitude(),1).get(0);
-                                    Log.d("help",""+states.get(newLoc.getAdminArea()));
+                                    //Log.d("help",""+states.get(newLoc.getAdminArea()));
                                     usState=""+states.get(newLoc.getAdminArea());
-                                    Log.d("help",usState);
+                                    //Log.d("help",usState);
 
 
                                     int i =0;

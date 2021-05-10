@@ -40,12 +40,12 @@ public class NearbyAdapter extends RecyclerView.Adapter<NearbyAdapter.ViewHolder
 
         Nearby nearby = nearbys.get(position);
 
-        holder.tvWant.setText("Have: "+nearby.getWant());
-        holder.tvHave.setText("Want: "+nearby.getHave());
+        holder.tvWant.setText("Want: "+nearby.getWant());
+        holder.tvHave.setText("Have: "+nearby.getHave());
         holder.tvPosted.setText(nearby.getPosted(1));
 
         holder.cvNearbyItem.setOnClickListener(v -> {
-            Log.d("help",nearby.getTitle());
+            //Log.d("help",nearby.getTitle());
             nextActivity(nearby,v);
         });
 
