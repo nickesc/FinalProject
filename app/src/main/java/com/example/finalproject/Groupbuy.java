@@ -7,37 +7,40 @@ import java.util.Date;
 import java.util.TimeZone;
 
 public class Groupbuy {
-    private JSONObject ids;
-    private JSONObject flair;
-    private String url;
+
+    private String name;
     private String title;
-    private String author;
-    private String subreddit;
     private String postBody;
+    private String postId;
+
+    private String url;
+    private String imageUrl;
+    private String infoUrl;
+
+    private String flair;
     private int score;
-    private int awardsCount;
+    private String author;
+    private String type;
+
     private Date posted;
     private Date start;
     private Date end;
 
-
-
     public Groupbuy(JSONObject json) throws JSONException {
-        this.ids.put("postName", json.getString("name"));
-        this.ids.put("postID", json.getString("id"));
-        this.ids.put("authorID", json.getString("author_fullname"));
-        this.ids.put("subredditID", json.getString("subreddit_id"));
 
-        this.flair.put("flairClass", "link_flair_css_class");
-        this.flair.put("flairName", "link_flair_text");
+        this.name=json.getString("_id");
+        this.title=json.getString("title");
+        this.postBody=json.getString("selftext");
+        this.postId=json.getString("name");
+
+        this.flair=json.getString("link_flair_css_class");
+        this.score=json.getInt("score");
+        this.author=json.getString("author");
+        this.type=json.getString("type");
 
         this.url=json.getString("url");
-        this.title=json.getString("title");
-        this.author=json.getString("author");
-        this.subreddit=json.getString("subreddit");
-        this.postBody=json.getString("selftext");
-        this.score=json.getInt("score");
-        this.awardsCount=json.getInt("total_awards_recieved");
+        this.imageUrl=json.getString("imageURL");
+        this.infoUrl=json.getString("infoURL");
 
         this.start=findDate(this.postBody, this.title, 0);
         this.end=findDate(this.postBody, this.title, 1);
@@ -58,47 +61,48 @@ public class Groupbuy {
 
     }
 
-    public String getIDs(String string) throws JSONException {
-        return ids.getString(string);
+    public String getName() {
+        return name;
     }
-    public String getFlair(String string) throws JSONException {
-        return flair.getString(string);
+    public String getTitle() {
+        return title;
+    }
+    public String getPostBody() {
+        return postBody;
+    }
+    public String getPostId() {
+        return postId;
     }
 
     public String getUrl() {
         return url;
     }
-
-    public String getAuthor() {
-        return author;
+    public String getImageUrl() {
+        return imageUrl;
     }
-    public String getTitle() {
-        return title;
-    }
-
-    public String getSubreddit() {
-        return subreddit;
-    }
-    public String getPostBody() {
-        return postBody;
+    public String getInfoUrl() {
+        return infoUrl;
     }
 
+    public String getFlair()  {
+        return flair;
+    }
     public int getScore() {
         return score;
     }
-
-    public int getAwardsCount() {
-        return awardsCount;
+    public String getAuthor() {
+        return author;
+    }
+    public String getType() {
+        return type;
     }
 
     public Date getPosted() {
         return posted;
     }
-
     public Date getStart() {
         return start;
     }
-
     public Date getEnd() {
         return end;
     }
